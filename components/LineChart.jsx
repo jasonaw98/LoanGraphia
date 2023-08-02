@@ -7,18 +7,6 @@ const LineChart = ({chartLabel, rebate, remainingAmount, paidAmount, paidToBankA
     Chart.register(Colors);
     const canvasEl = useRef(null);
 
-    const plugin = {
-        id: 'customCanvasBackgroundColor',
-        beforeDraw: (chart, args, options) => {
-        const {ctx} = chart;
-        ctx.save();
-        ctx.globalCompositeOperation = 'destination-over';
-        ctx.fillStyle = options.color || '#99ffff';
-        ctx.fillRect(0, 0, chart.width, chart.height);
-        ctx.restore();
-        }
-    };
-
     const colors = {
         purple: {
         default: "rgba(149, 76, 233, 1)",
@@ -106,14 +94,31 @@ const LineChart = ({chartLabel, rebate, remainingAmount, paidAmount, paidToBankA
         maxWidth: 200,
         responsive: true,
         plugins: {
+          title: {
+            display: true,
+            text: 'Loan Analysis Chart',
+            color: 'white',
+            font: {
+              size: 23,
+              weight: 'bold',
+          },
+        },
           legend: {
             position: 'top',
           },
-          customCanvasBackgroundColor: {
-            color: 'white',
-          },
           tooltip: {
             position: 'nearest',
+            backgroundColor: 'rgba(20, 32, 39, 0.9)',
+            titleSpacing: 10,
+            titleFont: {
+              size: 16,
+              weight: 'bold',
+          },
+          bodySpacing: 5,
+            bodyFont: {
+              size: 15,
+              weight: 'bold',
+          },
           },
           colors: {
             enabled: true,
@@ -121,12 +126,13 @@ const LineChart = ({chartLabel, rebate, remainingAmount, paidAmount, paidToBankA
           },
           legend: {
             labels: {
-              
+              color:'white',
                 font: {
-                    size: 15,
-                    weight: 'bold',
+                    size: 16,
+                    weight: '',
                 },
-                usePointStyle: false,
+                usePointStyle: true,
+                pointStyle: 'rectRounded'
             }
         }
         },
@@ -138,35 +144,51 @@ const LineChart = ({chartLabel, rebate, remainingAmount, paidAmount, paidToBankA
         },
         scales: {
           x: {
+            ticks: {
+              color: 'white',
+              font: {
+                size: 14,
+                weight: '',
+            },
+            },
             display: true,
             title: {
               display: true,
               text: 'Remaining Months',
-              color: '#00000',
+              color: 'white',
               font: {
                 size: 18,
-                weight: '',
+                weight: 'bold',
             },
             padding: {top: 12, left: 0, right: 0, bottom: 0}
             },
             grid: {
               drawOnChartArea: grid_line,
+              color: '#36454F',
             }
           },
           y: {
+            ticks: {
+              color: 'white',
+              font: {
+                size: 14,
+                weight: '',
+            },
+            },
             display: true,
             title: {
               display: true,
               text: 'Amount RM',
-              color: '#00000',
+              color: 'white',
               font: {
                 size: 16,
-                weight: '',
+                weight: 'bold',
             },
             padding: {top: 0, left: 0, right: 0, bottom: 13}
             },
             grid: {
               drawOnChartArea: grid_line,
+              color: '#36454F',
             }
           }
         },
@@ -193,7 +215,7 @@ const LineChart = ({chartLabel, rebate, remainingAmount, paidAmount, paidToBankA
           }
         }
       },
-      plugins: [plugin],
+      // plugins: [plugin],
     };
     const myLineChart = new Chart(ctx, config);
 
@@ -204,8 +226,8 @@ const LineChart = ({chartLabel, rebate, remainingAmount, paidAmount, paidToBankA
 
   return (
     <div className="line_chart">
-      <span className="flex justify-center font-bold">Loan Settlement Chart</span>
-      <canvas id="myChart" ref={canvasEl} height="150" />
+      {/* <span className="flex justify-center font-bold">Loan Settlement Chart</span> */}
+      <canvas id="myChart" ref={canvasEl} className="chart_canvas" />
     </div>
   );
 }

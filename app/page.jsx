@@ -3,8 +3,10 @@ import Form from '@/components/Form'
 
 const Home = () => {
   return (
-    <div className='flex'>
+    <div className='beginning'>
+      <div className='startForm'>
       <Form/>
+      </div>
     </div>
   )
 }

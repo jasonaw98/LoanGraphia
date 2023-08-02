@@ -16,37 +16,80 @@
   }
 }
 
-body {
-  /* color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: auto;
+  width: 100vw;
+}
+
+.beginning {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+
+  /* background: linear-gradient(180deg, hsla(213, 77%, 14%, 1) 20%, hsla(207, 36%, 31%, 1) 100%);
+  background: -moz-linear-gradient(180deg, hsla(213, 77%, 14%, 1) 20%, hsla(207, 36%, 31%, 1) 100%);
+  background: -webkit-linear-gradient(180deg, hsla(213, 77%, 14%, 1) 20%, hsla(207, 36%, 31%, 1) 100%);
+  background: -webkit-linear-gradient(180deg, #3B5D77, #223F5A, #152F4C, #08203E);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#08203e", endColorstr="#3B5D77", GradientType=1 );  */
+
+  background: hsla(217, 100%, 50%, 1);
+  background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) -30%, hsla(186, 100%, 69%, 1) 100%);
+  background: -moz-linear-gradient(90deg, hsla(217, 100%, 50%, 1) -30%, hsla(186, 100%, 69%, 1) 100%);
+  background: -webkit-linear-gradient(180deg, rgb(21, 126, 255) 20%, hsla(186, 100%, 69%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061ff", endColorstr="#60efff", GradientType=1 );
+  animation: moveBackground 7s linear infinite;
+  background-size: 400% 400%;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 50;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50;
+  }
+}
+
+.startForm {
+  display: flex;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+/* Chart CSS */
+.chart_canvas{
+  padding: 23px ;
+  background-color: #1f2937;
+  border-radius: 25px;
+  padding-right: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* min-width: 90rem; */
 }
 
 .line_chart{
-  max-width: 85rem;
-  min-width: 85rem;
-  margin-top: 3rem;
+  width: 100%;
+  /* min-width: 93rem; */
   margin-left: 4rem;
   margin-right: 3rem;
   font-size: large;
   font-family:Arial, Helvetica, sans-serif;
 }
 
+/* Forms CSS */
 .formPage{
-  margin-left: 3rem;
-  margin-top: 2rem;
-}
-
-.input-field{
-  background-color: transparent;
-}
-
-.inputName{
-  background-color: rgb(55 65 81);
+  width: 100%;
+  max-width: 25rem ;
+  min-width: 304px ;
+  display: flex;
+  flex-direction: column;
+  margin-left: 4rem;
+  align-items: center;
 }
 
 .nft{
@@ -55,8 +98,8 @@ body {
   /* margin-right: 60px;
   margin-left: 60px; */
   margin-bottom: 2rem;
-  max-width: 21rem;
-  min-width: 21rem;
+  max-width: 22rem;
+  /* min-width: 21rem; */
 }
 
 .stats{
@@ -67,4 +110,53 @@ body {
   max-height: 27rem;
   max-width: 34rem;
   margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 1880px) {
+  .beginning {
+    height: fit-content;
+  }
+}
+
+@media screen and (max-width: 1500px){
+  .formPage{
+    max-width: 21rem;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .beginning{
+    background:rgb(44, 180, 210);
+  }
+  .startForm {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+  .formPage{
+    margin-left: 0;
+  }
+  .nft, .stats, .formPage {
+    max-width: none;
+  }
+  .line_chart{
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 4rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .line_chart {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 575px){
+  .startForm{
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
 }
