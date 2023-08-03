@@ -8,7 +8,7 @@ const Nav = () => {
   const [dropDown, setdropDown] = useState(false);
 
   const contactMail = () => {
-    window.location.href = "mailto:jason_aw1998@hotmail.com";
+    window.location.href = "mailto:jasonaw98@gmail.com";
   };
 
   const Title = () => {
