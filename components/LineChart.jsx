@@ -103,6 +103,14 @@ const LineChart = ({chartLabel, rebate, remainingAmount, paidAmount, paidToBankA
               weight: 'bold',
           },
         },
+        subtitle: {
+          display: true,
+          text: 'Click Legend to toggle',
+          color: 'white',
+          font: {
+            size: 15,
+        },
+      },
           legend: {
             position: 'top',
           },
@@ -222,7 +230,22 @@ const LineChart = ({chartLabel, rebate, remainingAmount, paidAmount, paidToBankA
     return function cleanup() {
       myLineChart.destroy();
     };
-  });
+  }, []);
+
+  // Update chart when data changes
+  useEffect(() => {
+    const myLineChart = Chart.getChart(canvasEl.current);
+
+    if (myLineChart) {
+      // Update chart data and options based on new values
+      myLineChart.data.labels = chartLabel;
+      myLineChart.data.datasets[0].data = rebate;
+      myLineChart.data.datasets[1].data = remainingAmount;
+      myLineChart.data.datasets[2].data = paidAmount;
+      myLineChart.data.datasets[3].data = paidToBankAmount;
+      myLineChart.update();
+    }
+  }, [chartLabel, rebate, remainingAmount, paidAmount, paidToBankAmount]);
 
   return (
     <div className="line_chart">
