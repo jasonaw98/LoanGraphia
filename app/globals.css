@@ -143,5 +143,19 @@ body, html {
   .startForm{
     margin-left: 2.5rem;
     margin-right: 2.5rem;
+    /* height: 100vh; */
+  }
+  
+}
+
+@media screen and (max-width: 425px) {
+  .startForm{
+    height: 120vh;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+  .formPage{
+    min-width: none;
+    /* max-width: 40px; */
   }
 }
