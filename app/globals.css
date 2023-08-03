@@ -28,17 +28,17 @@ body, html {
   width: 100%;
   /* height: 100vh; */
 
-  /* background: linear-gradient(180deg, hsla(213, 77%, 14%, 1) 20%, hsla(207, 36%, 31%, 1) 100%);
+  background: linear-gradient(180deg, hsla(213, 77%, 14%, 1) 20%, hsla(207, 36%, 31%, 1) 100%);
   background: -moz-linear-gradient(180deg, hsla(213, 77%, 14%, 1) 20%, hsla(207, 36%, 31%, 1) 100%);
   background: -webkit-linear-gradient(180deg, hsla(213, 77%, 14%, 1) 20%, hsla(207, 36%, 31%, 1) 100%);
   background: -webkit-linear-gradient(180deg, #3B5D77, #223F5A, #152F4C, #08203E);
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#08203e", endColorstr="#3B5D77", GradientType=1 );  */
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#08203e", endColorstr="#3B5D77", GradientType=1 ); 
 
-  background: hsla(217, 100%, 50%, 1);
-  background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) -30%, hsla(186, 100%, 69%, 1) 100%);
+  /* background: #374151; */
+  /* background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) -30%, hsla(186, 100%, 69%, 1) 100%);
   background: -moz-linear-gradient(90deg, hsla(217, 100%, 50%, 1) -30%, hsla(186, 100%, 69%, 1) 100%);
   background: -webkit-linear-gradient(180deg, rgb(21, 126, 255) 20%, hsla(186, 100%, 69%, 1) 100%);
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061ff", endColorstr="#60efff", GradientType=1 );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061ff", endColorstr="#60efff", GradientType=1 ); */
   animation: moveBackground 5s linear infinite;
   background-size: 400% 400%;
 }
@@ -115,7 +115,7 @@ body, html {
 
 @media screen and (max-width: 1200px){
   .beginning{
-    background:rgb(21, 126, 255);
+    background:#374151;
   }
   .startForm {
     flex-direction: column;

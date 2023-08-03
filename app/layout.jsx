@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
-  title: "Lography.AI | Loan Settlement Analytics by AI",
+  title: "LoanGraphia.AI | Loan Settlement Analytics by AI",
   description: "Discover the hidden analytics behind your debt with AI",
 };
 
